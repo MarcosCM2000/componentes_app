@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:componentes_app/screens/screens.dart';
+import 'package:componentes_app/router/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,13 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //  home: const ListView2Screen(),
-      initialRoute: 'home',
-      routes: {
-        'home': (context) => const HomeScreen(),
-        'listview1': (context) => const ListView1Screen(),
-        'listview2': (context) => const ListView2Screen(),
-      },
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.routes,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }
