@@ -17,7 +17,7 @@ class AppRoutes {
         route: 'listview2',
         icon: Icons.list_outlined,
         name: 'listview tipo 2',
-        screen: const ListView1Screen()),
+        screen: const ListView2Screen()),
     MenuOption(
         route: 'alert',
         icon: Icons.add_alert_sharp,
@@ -29,11 +29,22 @@ class AppRoutes {
         name: 'Tarjetas - cards',
         screen: const CardScreen()),
   ];
-  static Map<String, Widget Function(BuildContext)> routes = {
+
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
+    Map<String, Widget Function(BuildContext)> appRoutes = {};
+    for (final option in menuOptions) {
+      appRoutes.addAll({option.route: (BuildContext context) => option.screen});
+    }
+    return appRoutes;
+  }
+
+  /*static Map<String, Widget Function(BuildContext)> routes = {
+    'alert': (context) => const AlertScreen(),
+    'card': (context) => const CardScreen(),
     'home': (context) => const HomeScreen(),
     'listview1': (context) => const ListView1Screen(),
     'listview2': (context) => const ListView2Screen(),
-  };
+  };*/
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     return MaterialPageRoute(builder: (context) => const AlertScreen());
   }
