@@ -9,6 +9,11 @@ class AppRoutes {
   static final menuOptions = <MenuOption>[
     //  TODO: borrar home
     MenuOption(
+        route: 'home',
+        icon: Icons.tv_sharp,
+        name: 'Home Screen',
+        screen: const HomeScreen()),
+    MenuOption(
         route: 'listview1',
         icon: Icons.list_alt_sharp,
         name: 'listview tipo 1',
