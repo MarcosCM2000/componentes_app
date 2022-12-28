@@ -16,9 +16,19 @@ class CardScreen extends StatelessWidget {
         children: const [
           CustomCardType1(),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
-          CustomCardType2()
+          CustomCardType2(
+            imageUrl:
+                'https://www.zelda.com/breath-of-the-wild/assets/media/header/Main-Day.jpg',
+            name: 'Un hermoso paisaje',
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CustomCardType2(
+              imageUrl:
+                  'https://i.guim.co.uk/img/media/8c0d89c19debb620016911adafd054daf1fd6578/60_0_1800_1080/master/1800.png?width=1200&quality=85&auto=format&fit=max&s=fd4adb8684a5ca4b0fc03d19ee6bdaa5'),
         ],
       ),
     );
