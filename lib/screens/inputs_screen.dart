@@ -71,8 +71,20 @@ class InputsScreen extends StatelessWidget {
                 formValues: formValues,
               ),
               const SizedBox(
-                height: 30,
+                height: 50,
               ),
+              DropdownButtonFormField<String>(
+                  items: const [
+                    DropdownMenuItem(value: 'Admin', child: Text('Admin')),
+                    DropdownMenuItem(
+                        value: 'Superuser', child: Text('Superuser')),
+                    DropdownMenuItem(
+                        value: 'Developer', child: Text('Developer'))
+                  ],
+                  onChanged: ((value) {
+                    print(value);
+                    formValues['role'] == value;
+                  })),
               ElevatedButton(
                   onPressed: () {
                     // Desactivar teclado
