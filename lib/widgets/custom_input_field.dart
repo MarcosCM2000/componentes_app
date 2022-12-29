@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
 class CustomInputField extends StatelessWidget {
-  const CustomInputField({
-    Key? key,
-    this.hintText,
-    this.labelText,
-    this.helperText,
-    this.icon,
-    this.suffixIcon,
-  }) : super(key: key);
+  const CustomInputField(
+      {Key? key,
+      this.hintText,
+      this.labelText,
+      this.helperText,
+      this.icon,
+      this.suffixIcon,
+      required this.keyboardType,
+      this.obscureText = false})
+      : super(key: key);
 
   final String? hintText;
   final String? labelText;
   final String? helperText;
   final IconData? icon;
   final IconData? suffixIcon;
+  final TextInputType keyboardType;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,8 @@ class CustomInputField extends StatelessWidget {
         if (value == null) return 'Campo requerido';
         return value.length < 3 ? 'Minimo de 3 letras' : null;
       },
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
           hintText: hintText,
