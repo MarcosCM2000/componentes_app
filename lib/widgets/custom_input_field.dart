@@ -9,7 +9,9 @@ class CustomInputField extends StatelessWidget {
       this.icon,
       this.suffixIcon,
       required this.keyboardType,
-      this.obscureText = false})
+      this.obscureText = false,
+      required this.formProperty,
+      required this.formValues})
       : super(key: key);
 
   final String? hintText;
@@ -19,6 +21,8 @@ class CustomInputField extends StatelessWidget {
   final IconData? suffixIcon;
   final TextInputType keyboardType;
   final bool obscureText;
+  final String formProperty;
+  final Map<String, String> formValues;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,9 @@ class CustomInputField extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   topRight: Radius.circular(10)))),
-      onChanged: (value) {},
+      onChanged: (value) {
+        formValues[formProperty] = value;
+      },
     );
   }
 }
